@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku Mania - Tailwind</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <script src="script.js" defer></script>
+</head>
+<body class="bg-slate-100 text-gray-800 min-h-screen flex flex-col font-sans">
+
+    <header class="bg-[#6992f0] px-10 py-5 flex justify-between items-center shadow-sm">
+        <div class="text-white text-2xl font-semibold tracking-wide">Sudoku Mania</div>
+        <nav class="flex gap-8">
+            <a href="#" class="text-white font-medium">Play</a>
+            <a href="#" class="text-white/80 hover:text-white transition-colors">Score</a>
+            <a href="#" class="text-white/80 hover:text-white transition-colors">Profile</a>
+        </nav>
+    </header>
+
+    <main class="flex-1 flex px-10 py-10 gap-5">
+
+        <aside class="flex-1 flex flex-col items-start">
+            <button class="bg-[#e0e4eb] text-gray-700 px-6 py-3 rounded font-medium hover:bg-slate-300 transition-colors">
+                New game
+            </button>
+        </aside>
+
+        <section class="flex-[2] flex flex-col items-center max-w-2xl w-full mx-auto">
+
+            <div class="w-full flex justify-center mb-6">
+                <div class="bg-[#e0e4eb] text-gray-600 px-8 py-2 rounded font-semibold tracking-wider">
+                    00:00    
+                </div>
+            </div>
+
+            <div class="w-full aspect-square rounded-3xl shadow-sm mb-8">
+                </div>
+
+            <div class="flex flex-col items-center gap-6 w-full">
+
+                <div class="flex gap-5">
+                    <button class="bg-[#e0e4eb] text-gray-600 px-6 py-2 rounded font-medium hover:bg-slate-300 transition-colors">Annulé</button>
+                    <button class="bg-[#e0e4eb] text-gray-600 px-6 py-2 rounded font-medium hover:bg-slate-300 transition-colors">Supprimé</button>
+                </div>
+
+                <div class="flex gap-3 justify-center flex-wrap">
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">1</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">2</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">3</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">4</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">5</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">6</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">7</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">8</button>
+                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">9</button>
+                </div>
+
+                <div class="mt-2">
+                    <button class="bg-[#e0e4eb] text-gray-600 px-10 py-3 rounded font-medium hover:bg-[#bac8e0] hover:text-white transition-colors">
+                        Confirmer
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+        <aside class="flex-1"></aside>
+
+    </main>
+
+</body>
+</html>
