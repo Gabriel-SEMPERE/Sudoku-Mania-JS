@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sudoku Mania - Tailwind</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    
-    <script src="script.js" defer></script>
+    <title>Sudoku Mania</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+<script src="config.js"></script>
+<script src="script.js" defer></script>
 </head>
 <body class="bg-slate-100 text-gray-800 min-h-screen flex flex-col font-sans">
 
@@ -22,8 +22,8 @@
     <main class="flex-1 flex px-10 py-10 gap-5">
 
         <aside class="flex-1 flex flex-col items-start">
-            <button class="bg-[#e0e4eb] text-gray-700 px-6 py-3 rounded font-medium hover:bg-slate-300 transition-colors">
-                New game
+            <button id="btn-new-game" class="bg-[#e0e4eb] text-gray-700 px-6 py-3 rounded font-medium hover:bg-slate-300 transition-colors">
+                Nouveau Sudoku
             </button>
         </aside>
 
@@ -35,34 +35,26 @@
                 </div>
             </div>
 
-            <div class="w-full aspect-square rounded-3xl shadow-sm mb-8">
-                </div>
+            <div id="sudoku-grid" class="w-full shadow-sm mb-8 bg-white overflow-hidden flex flex-col"></div>
 
             <div class="flex flex-col items-center gap-6 w-full">
-
                 <div class="flex gap-5">
                     <button class="bg-[#e0e4eb] text-gray-600 px-6 py-2 rounded font-medium hover:bg-slate-300 transition-colors">Annulé</button>
                     <button class="bg-[#e0e4eb] text-gray-600 px-6 py-2 rounded font-medium hover:bg-slate-300 transition-colors">Supprimé</button>
                 </div>
 
-                <div class="flex gap-3 justify-center flex-wrap">
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">1</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">2</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">3</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">4</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">5</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">6</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">7</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">8</button>
-                    <button class="w-10 h-10 bg-[#e0e4eb] text-gray-600 font-bold rounded flex justify-center items-center hover:bg-[#bac8e0] hover:text-white transition-colors">9</button>
+                <div class="flex gap-2">
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">1</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">2</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">3</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">4</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">5</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">6</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">7</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">8</button>
+                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">9</button>
                 </div>
-
-                <div class="mt-2">
-                    <button class="bg-[#e0e4eb] text-gray-600 px-10 py-3 rounded font-medium hover:bg-[#bac8e0] hover:text-white transition-colors">
-                        Confirmer
-                    </button>
-                </div>
-
+                <button class="bg-white shadow text-[#2c3e6b] font-semibold px-12 py-3 rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">Confirmer</button>
             </div>
         </section>
 
