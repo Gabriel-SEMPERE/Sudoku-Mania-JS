@@ -5,61 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sudoku Mania</title>
     <script src="https://cdn.tailwindcss.com"></script>
-<script src="config.js"></script>
-<script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-<body class="bg-slate-100 text-gray-800 min-h-screen flex flex-col font-sans">
+<body class="bg-slate-50 text-gray-800 min-h-screen flex flex-col font-sans">
 
-    <header class="bg-[#6992f0] px-10 py-5 flex justify-between items-center shadow-sm">
-        <div class="text-white text-2xl font-semibold tracking-wide">Sudoku Mania</div>
-        <nav class="flex gap-8">
-            <a href="#" class="text-white font-medium">Play</a>
-            <a href="#" class="text-white/80 hover:text-white transition-colors">Score</a>
-            <a href="#" class="text-white/80 hover:text-white transition-colors">Profile</a>
-        </nav>
+    <header class="bg-gradient-to-r from-[#6992f0] to-[#4b77d8] px-6 py-4 shadow-md">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-white text-[#4b77d8] p-1.5 rounded-lg shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="3" y1="15" x2="21" y2="15"></line><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+                </div>
+                <h1 class="text-white text-xl font-black tracking-tighter uppercase">Sudoku Mania</h1>
+            </div>
+            <button id="btn-ouvrir-scores" class="text-white text-sm bg-white/20 px-4 py-1.5 rounded-lg font-bold hover:bg-white/30 transition-all">Scores</button>
+        </div>
     </header>
 
-    <main class="flex-1 flex px-10 py-10 gap-5">
+    <main class="flex-1 max-w-2xl mx-auto w-full flex flex-col items-center px-4 py-8">
+        
+        <div class="w-full flex flex-wrap justify-center items-center gap-4 mb-8 bg-white p-4 rounded-2xl shadow-sm border border-slate-200">
+            <select id="difficulte" class="bg-slate-100 border-none text-gray-700 font-bold px-4 py-2 rounded-xl focus:ring-2 focus:ring-[#6992f0] outline-none cursor-pointer">
+                <option value="easy">Facile</option>
+                <option value="medium">Moyen</option>
+                <option value="hard">Difficile</option>
+            </select>
+            <button id="btn-nouvelle-partie" class="bg-[#6992f0] text-white px-5 py-2 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-sm">Nouveau Jeu</button>
+            <div id="chrono" class="ml-auto bg-slate-800 text-white px-4 py-2 rounded-xl font-mono font-bold text-lg shadow-inner">00:00</div>
+        </div>
 
-        <aside class="flex-1 flex flex-col items-start">
-            <button id="btn-new-game" class="bg-[#e0e4eb] text-gray-700 px-6 py-3 rounded font-medium hover:bg-slate-300 transition-colors">
-                Nouveau Sudoku
-            </button>
-        </aside>
+        <div id="sudoku-grid" class="w-full aspect-square max-w-[500px] shadow-2xl bg-white overflow-hidden flex flex-col border-[3px] border-slate-800 rounded-lg"></div>
 
-        <section class="flex-[2] flex flex-col items-center max-w-2xl w-full mx-auto">
-
-            <div class="w-full flex justify-center mb-6">
-                <div class="bg-[#e0e4eb] text-gray-600 px-8 py-2 rounded font-semibold tracking-wider">
-                    00:00    
-                </div>
+        <div class="w-full max-w-[500px] mt-8 flex flex-col gap-4">
+            <div id="pave-numerique" class="grid grid-cols-9 gap-1.5">
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">1</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">2</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">3</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">4</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">5</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">6</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">7</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">8</button>
+                <button class="aspect-square bg-white shadow-sm text-[#2c3e6b] font-black text-xl rounded-xl hover:bg-[#6992f0] hover:text-white transition-all border border-slate-200">9</button>
             </div>
 
-            <div id="sudoku-grid" class="w-full shadow-sm mb-8 bg-white overflow-hidden flex flex-col"></div>
-
-            <div class="flex flex-col items-center gap-6 w-full">
-                <div class="flex gap-5">
-                    <button class="bg-[#e0e4eb] text-gray-600 px-6 py-2 rounded font-medium hover:bg-slate-300 transition-colors">Annulé</button>
-                    <button class="bg-[#e0e4eb] text-gray-600 px-6 py-2 rounded font-medium hover:bg-slate-300 transition-colors">Supprimé</button>
-                </div>
-
-                <div class="flex gap-2">
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">1</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">2</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">3</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">4</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">5</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">6</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">7</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">8</button>
-                    <button class="w-12 h-12 bg-white shadow text-[#2c3e6b] font-bold text-lg rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">9</button>
-                </div>
-                <button class="bg-white shadow text-[#2c3e6b] font-semibold px-12 py-3 rounded-lg hover:bg-[#6992f0] hover:text-white transition-colors">Confirmer</button>
+            <div class="grid grid-cols-2 gap-3 mt-2">
+                <button id="btn-annuler" class="bg-white border-2 border-slate-200 text-slate-600 py-3 rounded-xl font-bold hover:bg-slate-50 transition-all">Effacer</button>
+                <button id="btn-supprimer" class="bg-red-50 border-2 border-red-100 text-red-600 py-3 rounded-xl font-bold hover:bg-red-100 transition-all">Réinitialiser</button>
             </div>
-        </section>
 
-        <aside class="flex-1"></aside>
-
+            <button id="btn-verifier" class="w-full bg-[#6992f0] text-white font-black py-4 rounded-xl hover:bg-blue-600 transition-all shadow-lg text-lg uppercase tracking-widest">Vérifier la solution</button>
+            <button id="btn-resoudre" class="w-full text-slate-400 font-bold py-2 text-sm hover:text-[#2c3e6b] transition-colors underline decoration-dotted">Résolution automatique</button>
+        </div>
     </main>
 
 </body>
