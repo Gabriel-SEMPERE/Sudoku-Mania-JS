@@ -1,0 +1,18 @@
+Sudoku Mania
+Une application web de Sudoku moderne et autonome, conçue pour offrir une expérience de jeu fluide sans dépendance externe.
+
+Fonctionnalités
+
+Génération Instantanée : Algorithme créant des grilles uniques et valides.
+
+Solveur Intégré : Algo capable de résoudre n'importe quelle grille via un algorithme de backtracking.
+
+Gestion des Niveaux : Trois modes de difficulté (Facile, Moyen, Difficile).
+
+Sauvegarde Automatique : Persistance de la partie et du chronomètre via LocalStorage.
+
+Classement : Suivi des 5 meilleurs temps par catégorie.
+
+Technologies
+HTML5 / Tailwind CSS
+JavaScript : Logique , algorithmes et gestion du stockage local.
