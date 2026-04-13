@@ -222,9 +222,9 @@ document.getElementById("btn-resoudre").onclick = () => {
     afficherPopup("Voulez-vous que l'algorithme trouve la solution ?", true, () => {
         if (!donneesJeu) return;
         let g = JSON.parse(JSON.stringify(donneesJeu.puzzle));
-        if (resoudreAlgo(g)) { 
-            afficherGrille(donneesJeu.puzzle, g); 
-            clearInterval(intervalleChrono); 
+        if (resoudreAlgo(g)) {
+            afficherGrille(donneesJeu.puzzle, g);
+            clearInterval(intervalleChrono);
         }
     });
 };
